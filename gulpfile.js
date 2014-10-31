@@ -7,3 +7,10 @@ gulp.task('stylesheets', function() {
     .pipe(gulp.dest('public/stylesheets'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
+
+gulp.task('watch', function() {
+
+  // Watch .sass files
+  gulp.watch('dist/stylesheets/**/*.sass', ['stylesheets']);
+
+});
