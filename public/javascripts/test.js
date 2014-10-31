@@ -1,6 +1,3 @@
-(function() {
-  var someVariable;
+var someVariable;
 
-  someVariable = "some other value";
-
-}).call(this);
+someVariable = "some other value";

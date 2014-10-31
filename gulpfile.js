@@ -22,7 +22,7 @@ gulp.task('templates', function(){
 
 gulp.task('javascripts', function() {
   gulp.src('dist/javascripts/**/*.coffee')
-    .pipe(coffee())
+    .pipe(coffee({bare: true}))
     .pipe(gulp.dest('public/javascripts'))
     .pipe(connect.reload());
 });
