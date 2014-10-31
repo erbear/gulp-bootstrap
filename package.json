@@ -4,6 +4,7 @@
   "description": "bootstrap application for frontend",
   "author": "erbear",
   "devDependencies": {
-    "gulp": "^3.8.9"
+    "gulp": "^3.8.9",
+    "gulp-ruby-sass": "^0.7.1"
   }
 }
