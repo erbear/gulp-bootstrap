@@ -1,7 +1,8 @@
 var gulp = require('gulp')
     sass = require('gulp-ruby-sass')
     connect = require('gulp-connect')
-    slim = require("gulp-slim");
+    slim = require("gulp-slim")
+    coffee = require("gulp-coffee");
 
 gulp.task('stylesheets', function() {
   return gulp.src('dist/stylesheets/**/*.sass')
@@ -19,6 +20,13 @@ gulp.task('templates', function(){
     .pipe(connect.reload());
 });
 
+gulp.task('javascripts', function() {
+  gulp.src('dist/javascripts/**/*.coffee')
+    .pipe(coffee())
+    .pipe(gulp.dest('public/javascripts'))
+    .pipe(connect.reload());
+});
+
 gulp.task('webserver', function() {
   connect.server({
     livereload: true
@@ -30,7 +38,8 @@ gulp.task('watch', function() {
   // Watch .sass files
   gulp.watch('dist/stylesheets/**/*.sass', ['stylesheets']);
   gulp.watch('dist/templates/**/*.slim', ['templates']);
+  gulp.watch('dist/javascripts/**/*.coffee', ['javascripts']);
 
 });
 
-gulp.task('default', ['stylesheets', 'templates', 'webserver', 'watch'])
+gulp.task('default', ['stylesheets', 'templates', 'javascripts', 'webserver', 'watch'])
