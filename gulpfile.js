@@ -2,11 +2,14 @@ var gulp = require('gulp')
     sass = require('gulp-ruby-sass')
     connect = require('gulp-connect')
     slim = require("gulp-slim")
+    concat = require("gulp-concat")
+    insert = require("gulp-insert")
     coffee = require("gulp-coffee");
 
 gulp.task('stylesheets', function() {
   return gulp.src('dist/stylesheets/**/*.sass')
     .pipe(sass({ style: 'expanded' }))
+    .pipe(concat('application.css'))
     .pipe(gulp.dest('public/stylesheets'))
     .pipe(connect.reload());
 });
@@ -23,6 +26,7 @@ gulp.task('templates', function(){
 gulp.task('javascripts', function() {
   gulp.src('dist/javascripts/**/*.coffee')
     .pipe(coffee({bare: true}))
+    .pipe(concat("application.js"))
     .pipe(gulp.dest('public/javascripts'))
     .pipe(connect.reload());
 });
