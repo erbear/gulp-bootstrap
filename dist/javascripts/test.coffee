@@ -1,1 +1,0 @@
-someVariable = "some other value"

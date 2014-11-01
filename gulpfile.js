@@ -10,7 +10,7 @@ gulp.task('stylesheets', function() {
   return gulp.src('dist/stylesheets/**/*.sass')
     .pipe(sass({ style: 'expanded' }))
     .pipe(concat('application.css'))
-    .pipe(gulp.dest('public/stylesheets'))
+    .pipe(gulp.dest('assets/stylesheets'))
     .pipe(connect.reload());
 });
 
@@ -19,7 +19,7 @@ gulp.task('templates', function(){
     .pipe(slim({
       pretty: true
     }))
-    .pipe(gulp.dest("public/templates"))
+    .pipe(gulp.dest("assets/templates"))
     .pipe(connect.reload());
 });
 
@@ -27,7 +27,16 @@ gulp.task('javascripts', function() {
   gulp.src('dist/javascripts/**/*.coffee')
     .pipe(coffee({bare: true}))
     .pipe(concat("application.js"))
-    .pipe(gulp.dest('public/javascripts'))
+    .pipe(gulp.dest('assets/javascripts'))
+    .pipe(connect.reload());
+});
+
+gulp.task('index', function(){
+  gulp.src("dist/index.slim")
+    .pipe(slim({
+      pretty: true
+    }))
+    .pipe(gulp.dest(""))
     .pipe(connect.reload());
 });
 
@@ -42,8 +51,9 @@ gulp.task('watch', function() {
   // Watch .sass files
   gulp.watch('dist/stylesheets/**/*.sass', ['stylesheets']);
   gulp.watch('dist/templates/**/*.slim', ['templates']);
+  gulp.watch('dist/index', ['index']);
   gulp.watch('dist/javascripts/**/*.coffee', ['javascripts']);
 
 });
 
-gulp.task('default', ['stylesheets', 'templates', 'javascripts', 'webserver', 'watch'])
+gulp.task('default', ['stylesheets', 'templates', 'index', 'javascripts', 'webserver', 'watch'])
