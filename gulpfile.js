@@ -62,7 +62,8 @@ gulp.task('watch', function() {
   // Watch .sass files
   gulp.watch('dist/stylesheets/**/*.sass', ['stylesheets']);
   gulp.watch('dist/templates/**/*.slim', ['templates']);
-  gulp.watch('dist/index.slim', ['index', 'inject']);
+  gulp.watch('dist/index.slim', ['index']);
+  gulp.watch('dist/index.html', ['inject']);
   gulp.watch('dist/javascripts/**/*.coffee', ['javascripts']);
 
 });
