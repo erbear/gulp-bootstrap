@@ -52,8 +52,10 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('inject', function() {
+  var application = gulp.src(['assets/**/*.js', 'assets/**/*.css'])
   gulp.src('assets/index.html')
   .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower'}))
+  .pipe(inject(application, {name: 'application'}))
   .pipe(gulp.dest(""));
 });
 

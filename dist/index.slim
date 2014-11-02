@@ -2,9 +2,11 @@ html ng-app="SampleApp"
   head
     title
       | development app
-    link rel="stylesheet" type="text/css" href="asstes/stylesheets/application.css"
+    /!  application:css 
+    /!  endinject 
   body
     div ui-view=""
     /!  bower:js 
     /!  endinject 
-    script type="text/javascript" src="assets/javascripts/application.js"
+    /!  application:js 
+    /!  endinject 
