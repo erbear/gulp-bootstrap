@@ -9,7 +9,7 @@ var gulp = require('gulp')
     coffee = require("gulp-coffee");
 
 gulp.task('stylesheets', function() {
-  return gulp.src('dist/stylesheets/**/*.sass')
+  return gulp.src('dev/stylesheets/**/*.sass')
     .pipe(sass({ style: 'expanded' }))
     .pipe(concat('application.css'))
     .pipe(gulp.dest('assets/stylesheets'))
@@ -17,7 +17,7 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('templates', function(){
-  gulp.src("dist/templates/**/*.slim")
+  gulp.src("dev/templates/**/*.slim")
     .pipe(slim({
       pretty: true,
       options: "attr_delims={'(' => ')', '[' => ']'}"
@@ -27,7 +27,7 @@ gulp.task('templates', function(){
 });
 
 gulp.task('javascripts', function() {
-  gulp.src('dist/javascripts/**/*.coffee')
+  gulp.src('dev/javascripts/**/*.coffee')
     .pipe(coffee({bare: true}))
     .pipe(concat("application.js"))
     .pipe(gulp.dest('assets/javascripts'))
@@ -35,7 +35,7 @@ gulp.task('javascripts', function() {
 });
 
 gulp.task('index', function(){
-  gulp.src("dist/index.slim")
+  gulp.src("dev/index.slim")
     .pipe(slim({
       pretty: true,
       options: "attr_delims={'(' => ')', '[' => ']'}"
@@ -62,11 +62,11 @@ gulp.task('inject', function() {
 gulp.task('watch', function() {
 
   // Watch .sass files
-  gulp.watch('dist/stylesheets/**/*.sass', ['stylesheets']);
-  gulp.watch('dist/templates/**/*.slim', ['templates']);
-  gulp.watch('dist/index.slim', ['index']);
+  gulp.watch('dev/stylesheets/**/*.sass', ['stylesheets']);
+  gulp.watch('dev/templates/**/*.slim', ['templates']);
+  gulp.watch('dev/index.slim', ['index']);
   gulp.watch('assets/index.html', ['inject']);
-  gulp.watch('dist/javascripts/**/*.coffee', ['javascripts']);
+  gulp.watch('dev/javascripts/**/*.coffee', ['javascripts']);
 
 });
 
