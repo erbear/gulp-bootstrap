@@ -40,7 +40,7 @@ gulp.task('index', function(){
       pretty: true,
       options: "attr_delims={'(' => ')', '[' => ']'}"
     }))
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("assets"))
     .pipe(connect.reload());
 });
 
@@ -52,7 +52,7 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('inject', function() {
-  gulp.src('dist/index.html')
+  gulp.src('assets/index.html')
   .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower'}))
   .pipe(gulp.dest(""));
 });
@@ -63,7 +63,7 @@ gulp.task('watch', function() {
   gulp.watch('dist/stylesheets/**/*.sass', ['stylesheets']);
   gulp.watch('dist/templates/**/*.slim', ['templates']);
   gulp.watch('dist/index.slim', ['index']);
-  gulp.watch('dist/index.html', ['inject']);
+  gulp.watch('assets/index.html', ['inject']);
   gulp.watch('dist/javascripts/**/*.coffee', ['javascripts']);
 
 });

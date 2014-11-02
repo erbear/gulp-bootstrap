@@ -1,1 +1,3 @@
-test = "test2"
+angular.module('SampleApp', [
+  'ui.router'
+]);
