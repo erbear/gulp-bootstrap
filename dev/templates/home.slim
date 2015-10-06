@@ -1,1 +1,46 @@
 | {{home}} sss
+body data-demo-id="draggableConnectors" data-library="dom"
+  #jtk-demo-main
+    /! demo
+    #canvas.jtk-demo-canvas.canvas-wide.drag-drop-demo.jtk-surface.jtk-surface-nopan
+      #dragDropWindow1.window
+        | one
+        br/
+        br/
+        a.cmdLink.hide href="#" rel="dragDropWindow1"  toggle connections
+        br/
+        a.cmdLink.drag href="#" rel="dragDropWindow1"  disable dragging
+        br/
+        a.cmdLink.detach href="#" rel="dragDropWindow1"  detach all
+      #dragDropWindow2.window
+        | two
+        br/
+        br/
+        a.cmdLink.hide href="#" rel="dragDropWindow2"  toggle connections
+        br/
+        a.cmdLink.drag href="#" rel="dragDropWindow2"  disable dragging
+        br/
+        a.cmdLink.detach href="#" rel="dragDropWindow2"  detach all
+      #dragDropWindow3.window
+        | three
+        br/
+        br/
+        a.cmdLink.hide href="#" rel="dragDropWindow3"  toggle connections
+        br/
+        a.cmdLink.drag href="#" rel="dragDropWindow3"  disable dragging
+        br/
+        a.cmdLink.detach href="#" rel="dragDropWindow3"  detach all
+      #dragDropWindow4.window
+        | four
+        br/
+        br/
+        a.cmdLink.hide href="#" rel="dragDropWindow4"  toggle connections
+        br/
+        a.cmdLink.drag href="#" rel="dragDropWindow4"  disable dragging
+        br/
+        a.cmdLink.detach href="#" rel="dragDropWindow4"  detach all
+      #list
+    /! /demo
+    /! explanation
+      .commands
+        a#clear.cmd href="#"  clear plumbing
